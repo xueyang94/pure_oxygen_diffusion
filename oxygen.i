@@ -1,3 +1,11 @@
+#When phase_mobility_M=1.571e-5, simulation converges, no interface diffusion is observed.
+#When phase_mobility_M=1e-1, simulation converges, no interface diffusion is observed. 
+#When phase_mobility_M=1e2, best linear convergence. Interface diffusion is observed.
+#When phase_mobility_M=1e3, still good convergence, interface diffusion more obvious. 
+#When phase_mobility_M=1e4, converges but linear not good, interface diffusion more obvious.
+#When phase_mobility_M=1e5, bad convergence.
+#SO, 1e2 is the best value for this set of input data. 
+
 [Mesh]
   type = GeneratedMesh
   dim = 2
