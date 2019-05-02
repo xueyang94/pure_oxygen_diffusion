@@ -1,3 +1,4 @@
+#Three phases: metal, oxide, and gas.
 #When phase_mobility_M=1.571e-5, simulation converges, no interface diffusion is observed.
 #When phase_mobility_M=1e-1, simulation converges, no interface diffusion is observed. 
 #When phase_mobility_M=1e2, best linear convergence. Interface diffusion is observed.
