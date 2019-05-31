@@ -1,4 +1,10 @@
 #unit of lengh is nm
+#the free energy of Fe-O is from paper "Themodynamic re-evaluation of the Fe-O system", the free energy of FeO-O is then derived
+#assuming its parabolic coefficient is the same as Fe-O, and also assume that the equilibrium concentration from the common tagent line
+#of the two systems results in the equilibrium concentration of O are 1e-4 in Fe and 0.5 in FeO. (refer to the free energy plots). 
+#Pay attention to the values of phase mobility and mobility chi.
+
+
 [Mesh]
   type = GeneratedMesh
   dim = 2
