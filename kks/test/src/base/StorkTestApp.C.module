@@ -1,0 +1,62 @@
+//* This file is part of the MOOSE framework
+//* https://www.mooseframework.org
+//*
+//* All rights reserved, see COPYRIGHT for full restrictions
+//* https://github.com/idaholab/moose/blob/master/COPYRIGHT
+//*
+//* Licensed under LGPL 2.1, please see LICENSE for details
+//* https://www.gnu.org/licenses/lgpl-2.1.html
+#include "kksTestApp.h"
+#include "kksApp.h"
+#include "Moose.h"
+#include "AppFactory.h"
+#include "MooseSyntax.h"
+
+template <>
+InputParameters
+validParams<kksTestApp>()
+{
+  InputParameters params = validParams<kksApp>();
+  return params;
+}
+
+kksTestApp::kksTestApp(InputParameters parameters) : MooseApp(parameters)
+{
+  kksTestApp::registerAll(
+      _factory, _action_factory, _syntax, getParam<bool>("allow_test_objects"));
+}
+
+kksTestApp::~kksTestApp() {}
+
+void
+kksTestApp::registerAll(Factory & f, ActionFactory & af, Syntax & s, bool use_test_objs)
+{
+  kksApp::registerAll(f, af, s);
+  if (use_test_objs)
+  {
+    Registry::registerObjectsTo(f, {"kksTestApp"});
+    Registry::registerActionsTo(af, {"kksTestApp"});
+  }
+}
+
+void
+kksTestApp::registerApps()
+{
+  registerApp(kksApp);
+  registerApp(kksTestApp);
+}
+
+/***************************************************************************************************
+ *********************** Dynamic Library Entry Points - DO NOT MODIFY ******************************
+ **************************************************************************************************/
+// External entry point for dynamic application loading
+extern "C" void
+kksTestApp__registerAll(Factory & f, ActionFactory & af, Syntax & s)
+{
+  kksTestApp::registerAll(f, af, s);
+}
+extern "C" void
+kksTestApp__registerApps()
+{
+  kksTestApp::registerApps();
+}
