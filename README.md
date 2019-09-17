@@ -1,2 +1,2 @@
 # pure_oxygen_diffusion
-the first test input file, pure oxygen diffusing into pure iron metal 
+Grand Potential Model of oxygen diffusion  
